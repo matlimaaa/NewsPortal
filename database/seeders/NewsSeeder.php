@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\News;
 use Illuminate\Database\Seeder;
 
 class NewsSeeder extends Seeder
@@ -13,6 +14,8 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // set limit on memory to prevent default PHP memory from overflowing
+        ini_set('memory_limit', '512M');
+        News::factory(1000)->create();
     }
 }
